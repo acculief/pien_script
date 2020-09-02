@@ -1,6 +1,6 @@
 {
   "name": "ぴえん🥺スクリプト",
-  "version": "0.0.0.1",
+  "version": "0.0.0.2",
   "manifest_version": 2,
   "description": "ネガティブな言葉を🥺に変換する拡張機能",
   "content_scripts": [
@@ -10,7 +10,6 @@
       "run_at": "document_idle"
     }
   ],
-  "permissions": ["activeTab"],
   "browser_action": {
     "default_icon": "pien-logo.png"
   }

@@ -12,11 +12,23 @@ var chars = [
   "クソ",
   "くそ",
 ];
-$(function () {
-  let body = $("body").html();
-  for (var i = 0, len = chars.length; i < len; i++) {
-    const re = new RegExp(chars[i], "g");
-    body = body.replace(re, "🥺");
+
+var elements = document.getElementsByTagName("*");
+
+for (var i = 0; i < elements.length; i++) {
+  var element = elements[i];
+
+  for (var j = 0; j < element.childNodes.length; j++) {
+    var node = element.childNodes[j];
+
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp(chars.join("|"), "g");
+      var replacedText = text.replace(re, "🥺");
+
+      if (replacedText !== text) {
+        element.replaceChild(document.createTextNode(replacedText), node);
+      }
+    }
   }
-  $("body").html(body);
-});
+}
